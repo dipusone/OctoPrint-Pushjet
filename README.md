@@ -1,3 +1,4 @@
+https://github.com/thijsbekke/OctoPrint-Pushover/
 # OctoPrint-Pushjet
 
 Notification plugin for [Octoprint](octoprint.org). It can be used to receive push notifications on your phone using [Pushjet](https://pushjet.io/).
@@ -73,5 +74,5 @@ G1 X108.789 Y104.770 E4.20140
 ### Priority
 
 It is possible to set the notification level for the various events.
-I swear I cannot find the meaning of the levels in the documentation :).
+I swear I cannot find the meaning of the levels in the Pushjet documentation :).
 
