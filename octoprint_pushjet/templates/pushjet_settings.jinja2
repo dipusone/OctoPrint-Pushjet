@@ -1,0 +1,77 @@
+<h3>{{ _('Pushjet Configuration') }}</h3>
+
+{% trans %}<p>
+    To use pushjet you need a server or use the one provided by the Pushjet developer.
+    To learn more visit <a href="https://pushjet.io/" target="_blank">Pushjet</a>
+</p>{% endtrans %}
+
+<form class="form-horizontal">
+
+
+    <div class="control-group">
+        <label class="control-label">{{ _('API Url') }}</label>
+        <div class="controls" title="The url of the pushjet server">
+            <input type="text" class="input-block-level" id="api_url" data-bind="value: settings.plugins.pushjet.api_url">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">{{ _('Token') }}</label>
+        <div class="controls" title="The secret token for the pushjet service">
+            <input type="text" class="input-block-level" id="token" data-bind="value: settings.plugins.pushjet.token">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">{{ _('Retry') }}</label>
+        <div class="controls" title="Number of times to retry the shipping of the message">
+            <input type="number" class="input-block-level" id="retry" data-bind="value: settings.plugins.pushjet.retry">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">{{ _('Time between retry') }}</label>
+        <div class="controls" title="Time to wait between the retry">
+            <input type="number" class="input-block-level" id="sleep-time" data-bind="value: settings.plugins.pushjet.time_retry">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">{{ _('Append timestamp') }}</label>
+        <div class="controls" title="If checked the message will also contain the time when it was generated.">
+            <input type="checkbox" class="input-block-level" id="timestamp" data-bind="checked: settings.plugins.pushjet.timestamp">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">{{ _('Remove Extension') }}</label>
+        <div class="controls" title="If checked the extension of the filename wil be stripped away.">
+            <input type="checkbox" class="input-block-level" id="remove_extension" data-bind="checked: settings.plugins.pushjet.remove_ext">
+        </div>
+    </div>
+
+{#    <div class="control-group">#}
+{#        <label class="control-label">{{ _('Icon') }}</label>#}
+{#        <div class="controls">#}
+{#            <input type="text" class="input-block-level" id="token" data-bind="value: settings.plugins.pushjet.icon">#}
+{#        </div>#}
+{#    </div>#}
+
+    {% for key, value in plugin_pushjet_events.iteritems() %}
+        <div class="control-group">
+            <label class="control-label">{{ value.name }}</label>
+            <div class="controls" title="{{ value.help if value.help is defined }}" >
+                <select data-bind="value: settings.plugins.pushjet.events.{{ key }}.priority">
+                    <option value="">{{ _('Off') }}</option>
+                    <option value="1">{{ _('Lowest Priority') }}</option>
+                    <option value="2">{{ _('Low Priority') }}</option>
+                    <option value="3">{{ _('Normal Priority') }}</option>
+                    <option value="4">{{ _('High Priority') }}</option>
+                    <option value="5">{{ _('Highest Priority') }}</option>
+                </select>
+
+            </div>
+        </div>
+    {% endfor %}
+
+</form>
