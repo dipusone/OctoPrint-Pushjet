@@ -1,4 +1,3 @@
-https://github.com/thijsbekke/OctoPrint-Pushover/
 # OctoPrint-Pushjet
 
 Notification plugin for [Octoprint](octoprint.org). It can be used to receive push notifications on your phone using [Pushjet](https://pushjet.io/).
